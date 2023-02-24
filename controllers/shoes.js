@@ -19,7 +19,31 @@ const index = async (req, res) => {
   }
 }
 
+const update = async (req, res) => {
+  try {
+    const shoe = await Shoe.findByPk(req.params.id)
+      shoe.set(req.body)
+      await shoe.save()
+    res.status(200).json(shoe)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
+const deleteShoe = async (req, res) => {
+  try {
+
+    const shoe = await Shoe.findByPk(req.params.id)
+    await shoe.destroy()
+    res.status(200).json(shoe)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
+  update,
+  delete: deleteShoe
 }
