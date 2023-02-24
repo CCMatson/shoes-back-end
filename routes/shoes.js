@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const votesCtrl = require('../controllers/shoes.js')
+const shoesCtrl = require('../controllers/shoes.js')
 const middleware = require('../middleware/auth.js')
 
 const { decodeUserFromToken, checkAuth } = middleware
@@ -9,6 +9,7 @@ const { decodeUserFromToken, checkAuth } = middleware
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.post('/', checkAuth, shoesCtrl.create)
 
 
 module.exports = router
