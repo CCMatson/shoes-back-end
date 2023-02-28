@@ -22,11 +22,6 @@ module.exports = {
           model: 'Profiles',
           key: 'id'
       }},
-      photo: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        onDelete: 'CASCADE',
-      },
       info: {
         type: Sequelize.STRING,
         allowNull: false,

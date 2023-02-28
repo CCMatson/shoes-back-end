@@ -6,6 +6,7 @@ async function create(req, res) {
     const shoe = await Shoe.create(req.body)
     res.status(200).json(shoe)
   } catch (error) {
+    console.log(error)
     res.status(500).json({ err: error })
   }
 }
