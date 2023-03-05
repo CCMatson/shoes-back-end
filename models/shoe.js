@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       onDelete: 'CASCADE'
     },
+    photo: {
+      type: DataTypes.STRING,
+      onDelete: 'CASCADE'
+    }
   }, {
     sequelize,
     modelName: 'Shoe',
